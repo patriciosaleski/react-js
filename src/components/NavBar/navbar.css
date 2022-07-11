@@ -1,0 +1,48 @@
+header.container {
+    width: 100vw;
+    background-color: var(--main-bg-color);
+    padding: .5rem 0;
+}
+
+img {
+    width: 160px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    margin: 0 auto;
+    width: 50rem;
+}
+
+.navbar__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar__menu--item a {
+    font-size: 1.8em;
+    font-weight: var(--regular);
+    padding: .5rem 2rem;
+    border-radius: 3rem;
+    transition: all .2s ease-in;
+}
+
+.navbar__menu--item a:hover {
+    background-color: var(--secondary-color);
+}
+
+.navbar__menu--item svg {
+    width: 32px;
+    height: 32px;
+    margin-right: 1.2rem;
+}
+
+.navbar__menu--item:last-child a {
+    display: flex;
+    align-items: center;
+}
