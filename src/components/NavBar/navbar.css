@@ -35,14 +35,3 @@ img {
 .navbar__menu--item a:hover {
     background-color: var(--secondary-color);
 }
-
-.navbar__menu--item svg {
-    width: 32px;
-    height: 32px;
-    margin-right: 1.2rem;
-}
-
-.navbar__menu--item:last-child a {
-    display: flex;
-    align-items: center;
-}

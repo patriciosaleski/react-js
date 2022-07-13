@@ -1,9 +1,9 @@
 import React from 'react'
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import logo from './logo.png'
 import './navbar.css'
+import CartWidget from '../CartWidget/CartWidget'
 
-export const NavBar = () => {
+const NavBar = () => {
     return (
         <header className='container'>
             <nav className='navbar'>
@@ -12,7 +12,7 @@ export const NavBar = () => {
                     <li className='navbar__menu--item'><a href="#">Tienda</a></li>
                     <li className='navbar__menu--item'><a href="#">Contacto</a></li>
                     <li className='navbar__menu--item'><a href="#">Nosotros</a></li>
-                    <li className='navbar__menu--item'><a href="#"><ShoppingCartOutlinedIcon/> Carro</a></li>
+                    <li className='navbar__menu--item'><CartWidget /></li>
                 </ul>
             </nav>
         </header>

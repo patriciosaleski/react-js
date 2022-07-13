@@ -1,0 +1,10 @@
+.navbar__menu--item:last-of-type a {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__menu--item svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 1.2rem;
+}

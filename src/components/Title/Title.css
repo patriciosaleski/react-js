@@ -1,0 +1,7 @@
+.main__title {
+    font-family: var(--primary-font);
+    font-weight: var(--thin);
+    font-size: 9em;
+    text-align: center;
+    margin-top: 2rem;
+}
