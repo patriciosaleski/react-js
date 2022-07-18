@@ -1,0 +1,24 @@
+.item-counter {
+    background-color: var(--secondary-color);
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.item-counter button:last-child {
+    padding: .7rem;
+    border: .1rem solid var(--black);
+    border-radius: 1rem;
+    transition: all .2s ease-in;
+    margin-top: 1rem;
+}
+
+.item-counter button:last-child:hover {
+    background-color: aliceblue;
+}
+
+span {
+    font-size: 2em;
+    margin: 0 1.2rem;
+}

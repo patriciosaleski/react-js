@@ -1,0 +1,15 @@
+.circle-button {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: 1.8em;
+    border-radius: 50%;
+    border: none;
+    transition: all .2s ease-in;
+    cursor: pointer;
+}
+
+.circle-button:hover {
+    background-color: var(--main-bg-color);
+}

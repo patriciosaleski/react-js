@@ -19,7 +19,7 @@ a {
   color: var(--black);
 }
 
-a:hover {
+button:hover, a:hover {
   cursor: pointer;
 }
 
