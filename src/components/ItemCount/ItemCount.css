@@ -1,12 +1,12 @@
-.item-counter {
+.item__counter {
     background-color: var(--secondary-color);
     width: fit-content;
     text-align: center;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 1rem;
 }
 
-.item-counter button:last-child {
+.item__counter button:last-child {
     padding: .7rem;
     border: .1rem solid var(--black);
     border-radius: 1rem;
@@ -14,7 +14,7 @@
     margin-top: 1rem;
 }
 
-.item-counter button:last-child:hover {
+.item__counter button:last-child:hover {
     background-color: aliceblue;
 }
 

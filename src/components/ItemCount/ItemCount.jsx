@@ -18,8 +18,8 @@ export const ItemCount = ({ initial, stock, onAdd}) => {
     }, [initial])
 
     return (
-        <div className="item-counter">
-            <CircularButton disable={count <= 1 } fn={decrease} content="-" />
+        <div className="item__counter">
+            <CircularButton disable={count <= 0 } fn={decrease} content="-" />
             <span>{count}</span>
             <CircularButton disable={count >= stock} fn={increase} content="+" />
             <div>
