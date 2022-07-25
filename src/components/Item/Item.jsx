@@ -9,9 +9,9 @@ const Item = (props) => {
     return (
         <div className='item'>
             <div className='item__info'>
-                <img src={props.src} alt={props.alt} />
-                <h3>{props.name}</h3>
-                <div>{props.price}</div>
+                <img src={props.src} alt={props.alt} className='item__picture' />
+                <h3 className='item__name'>{props.name}</h3>
+                <div className='item__price'>${props.price}</div>
             </div>
             <ItemCount initial={0} stock={10} onAdd={onAdd}/>
         </div>

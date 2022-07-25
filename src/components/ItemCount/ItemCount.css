@@ -1,8 +1,6 @@
 .item__counter {
     background-color: var(--secondary-color);
-    width: fit-content;
     text-align: center;
-    /* margin: 0 auto; */
     padding: 1rem;
 }
 
