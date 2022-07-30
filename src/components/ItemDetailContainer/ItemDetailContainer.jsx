@@ -1,52 +1,47 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import FeatureContainer from '../FeatureContainer/FeatureContainer'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css'
 
-const features = [
+const productInfo = [
     {
-        id: 1,
-        src: 'https://i.imgur.com/LHcI66S.png',
-        alt: 'Imagen de una hoja de arbol cayendo',
-        text: 'Super cómoda'
+        id: 1, 
+        baseSize: 1.0,
+        height: 1.55
     },
     {
-        id: 2,
-        src: 'https://i.imgur.com/0gVggHs.png',
-        alt: 'Imagen de una persona practicando yoga',
-        text: 'Un espacio propio'
+        id: 2, 
+        baseSize: 1.2,
+        height: 1.7
     },
     {
-        id: 3,
-        src: 'https://i.imgur.com/ymIS4CX.png',
-        alt: 'Imagen de dos eslabones de cadena unidos',
-        text: 'Resistencia superior'
+        id: 3, 
+        baseSize: 1.5,
+        height: 1.7
     },
     {
-        id: 4,
-        src: 'https://i.imgur.com/C8phxBg.png',
-        alt: 'Imagen de una ventana',
-        text: 'Una gran vista'
+        id: 4, 
+        baseSize: 2.0,
+        height: 1.85
     }
 ]
 
 const ItemDetailContainer = () => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState({})
+    const { detalleId } = useParams()
 
     useEffect(() => {
-        const getData = new Promise(resolve => {
-            resolve(features)
-        })
-
-        getData.then(res => setData(res))
-
-    }, [])
+        const getData =  new Promise(resolve => resolve(productInfo))
+        
+        getData.then(res => setData(res.find(product => product.id === parseInt(detalleId))))
     
+    }, [])
 
     return (
         <div className='item__detail'>
-            <FeatureContainer data={data} />
-            <ItemDetail />
+            <FeatureContainer />
+            <ItemDetail data={data} />
         </div>
     )
 }

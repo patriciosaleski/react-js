@@ -1,9 +1,9 @@
 import './ItemDetail.css'
 
-const ItemDetail = () => {
+const ItemDetail = ({ data }) => {
     return (
         <div className='item__detail--features'>
-            <p>Carpa de (props.baseSize) de base y (props.height) de alto.</p>
+            <p>Carpa de {data.baseSize}m de base y {data.height}m de alto.</p>
             <ul>
                 <li>Incluye alfombra acolchada impermeable.</li>
                 <li>Incluye un almohadón con diseño a elegir.</li>
