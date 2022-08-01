@@ -23,7 +23,7 @@ export const ItemCount = ({ initial, stock, onAdd}) => {
             <span>{count}</span>
             <CircularButton disable={count >= stock} fn={increase} content="+" />
             <div>
-                <button disabled={stock <= 0} onClick={() => onAdd(count)}>Agregar al carro</button>
+                <button disabled={stock <= 0 || count === 0} onClick={() => onAdd(count)}>Agregar al carro</button>
             </div>
         </div>
     )

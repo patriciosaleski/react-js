@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import FeatureContainer from '../FeatureContainer/FeatureContainer'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import CloseIcon from '@mui/icons-material/Close'
 import './ItemDetailContainer.css'
+
 
 const productInfo = [
     {
@@ -40,6 +42,9 @@ const ItemDetailContainer = () => {
 
     return (
         <div className='item__detail'>
+            <Link to='/'>
+                <CloseIcon className='item__close-btn'/>
+            </Link>
             <FeatureContainer />
             <ItemDetail data={data} />
         </div>

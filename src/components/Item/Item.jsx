@@ -1,10 +1,14 @@
-import ItemCount from '../ItemCount/ItemCount'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import GoToCart from '../GoToCart/GoToCar'
+import ItemCount from '../ItemCount/ItemCount'
 import './Item.css'
 
 const Item = (props) => {
-    const onAdd = (quantity) => {
-        console.log(`Compraste ${quantity} unidades`)
+    const [goToCart, setGoToCart] = useState(false)
+
+    const onAdd = () => {
+        setGoToCart(true)
     }
 
     return (
@@ -17,7 +21,8 @@ const Item = (props) => {
                         <div className='item__price'>${props.price}</div>
                     </div>
                 </Link>
-                <ItemCount initial={0} stock={10} onAdd={onAdd}/>
+                {goToCart ?  <Link to='/carro'><GoToCart /></Link>
+                        :   <ItemCount initial={0} stock={10} onAdd={onAdd}/>}
             </div>
     )
 }

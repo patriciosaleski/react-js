@@ -76,3 +76,19 @@
 .item__detail li:nth-child(4) {
     margin-left: 10rem;
 }
+
+.item__close-btn {
+    position: absolute;
+    font-size: 30px!important;
+    left: 576px;
+    top: 170px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s ease-in;
+    opacity: .2;
+}
+
+.item__close-btn:hover {
+    background-color: var(--white);
+    opacity: 1;
+}

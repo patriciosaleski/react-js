@@ -1,11 +1,12 @@
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
+import { Link } from 'react-router-dom'
 import './cartwidget.css'
 
-function CartWidget(props){
+function CartWidget(){
     return (
-        <a href={props.href}>
+        <Link to='/carro'>
             <ShoppingCartOutlinedIcon className='cart-icon'/> Carro
-        </a>
+        </Link>
     )
 }
 
