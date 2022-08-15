@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
 import { initializeApp } from "firebase/app"
+
+import './index.css'
+
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,

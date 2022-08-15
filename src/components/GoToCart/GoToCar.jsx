@@ -1,4 +1,5 @@
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
+
 import './GoToCart.css'
 
 const GoToCart = () => {

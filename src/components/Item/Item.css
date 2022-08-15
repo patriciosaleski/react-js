@@ -19,14 +19,14 @@
 
 .item__name {
     font-family: var(--primary-font);
-    font-size: 1.6em;
+    font-size: 1.2em;
     width: fit-content;
     margin: 1rem 0;
 }
 
 .item__price {
     font-family: var(--primary-font);
-    font-size: 1.6em;
+    font-size: 1.2em;
     font-weight: var(--light);
     float: right;
     margin: 1rem 0;

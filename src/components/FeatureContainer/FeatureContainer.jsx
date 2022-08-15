@@ -1,5 +1,7 @@
-import Feature from '../Feature/Feature'
 import { useState, useEffect } from 'react'
+
+import Feature from '../Feature/Feature'
+
 
 const features = [
     {

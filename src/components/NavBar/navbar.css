@@ -21,13 +21,13 @@ header.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 75%;
 }
 
 .navbar__menu--item a {
-    font-size: 1.8em;
+    font-size: 1.2em;
     font-weight: var(--regular);
-    padding: .5rem 2rem;
+    padding: .5rem 1.5rem;
     border-radius: 3rem;
     transition: all .2s ease-in;
 }

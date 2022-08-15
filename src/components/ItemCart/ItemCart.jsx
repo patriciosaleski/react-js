@@ -1,12 +1,14 @@
 import { useCartContext } from "../../context/CartContext"
-import CircularButton from "../CircularButton/CircularButton"
+
+import { IconButton, Tooltip, Typography } from "@mui/material"
+import DeleteForever from "@mui/icons-material/DeleteForever"
+
 import './ItemCart.css'
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 
 const ItemCart = ({ product }) => {
-    const { removeProduct } = useCartContext()
-
+    
+    const { removeFromCart } = useCartContext()
 
     return (
         <div className='cart__item'>
@@ -19,7 +21,11 @@ const ItemCart = ({ product }) => {
                 </div>
                 <div className='cart__item--aux'>
                     <p>Subtotal: ${product.price * product.quantity}</p>
-                    <CircularButton content={<DeleteForeverIcon />} onClick={(() => removeProduct(product.id))}/>
+                    <Tooltip title={<Typography fontSize={12}>Quitar producto</Typography>}>
+                        <IconButton onClick={ (() => removeFromCart(product.id)) }>
+                            <DeleteForever />
+                        </IconButton>
+                    </Tooltip>
                 </div>
             </div>
         </div>

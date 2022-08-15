@@ -1,5 +1,6 @@
 import './ItemDetail.css'
 
+
 const ItemDetail = ({ data }) => {
     return (
         <div className='item__detail--features'>

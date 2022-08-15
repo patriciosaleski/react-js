@@ -1,6 +1,9 @@
-import CircularButton from '../CircularButton/CircularButton'
-import './ItemCount.css'
 import { useState, useEffect } from 'react'
+
+import CircularButton from '../CircularButton/CircularButton'
+
+import './ItemCount.css'
+
 
 export const ItemCount = ({ initial, stock, onAdd}) => {
     const [count, setCount] = useState(initial)
