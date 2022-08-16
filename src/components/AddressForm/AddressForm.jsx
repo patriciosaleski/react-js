@@ -1,11 +1,16 @@
 import * as React from 'react'
+import { useEffect, useState } from 'react'
 
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 
+import { useOrderContext } from '../../context/OrderContext'
+
 
 const AddressForm = () => {
+  const { orderHandler } = useOrderContext()
+
   return (
     <>
       <Typography variant="h6" gutterBottom>
@@ -20,6 +25,7 @@ const AddressForm = () => {
             label="Nombre"
             fullWidth
             variant="standard"
+            onChange={orderHandler}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -30,6 +36,7 @@ const AddressForm = () => {
             label="Apellido"
             fullWidth
             variant="standard"
+            onChange={orderHandler}
           />
         </Grid>
         <Grid item xs={12}>
