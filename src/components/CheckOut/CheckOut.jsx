@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { useOrderContext } from '../../context/OrderContext'
+
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import StepLabel from '@mui/material/StepLabel'
@@ -13,29 +15,6 @@ import Box from '@mui/material/Box'
 import AddressForm from '../AddressForm/AddressForm'
 import PaymentForm from '../PaymentForm/PaymentForm'
 import Review from '../Review/Review'
-
-
-// WIP
-// const order = {
-//   buyer: {
-//     name: 'Patricio',
-//     email: 'patriciosaleski@gmail.com',
-//     phone: '15786',
-//     address: 'Av Siempre viva'
-//   },
-//   items: cart.map(product => ({ id: product.id, name: product.name, price: product.price, quantity: product.quantity })),
-//   total: totalPrice(),
-// }
-
-// console.log(cart)
-
-// const handleClick = () => {
-//   const db = getFirestore()
-//   const orderCollection = collection(db, 'orders')  
-//   addDoc(orderCollection, order)
-//   .then(({ id }) => console.log(id))
-// }
-// WIP ^
 
 
 const steps = ['Dirección de envío', 'Detalles de pago', 'Revisá tu orden']
@@ -56,6 +35,8 @@ function getStepContent(step) {
 const theme = createTheme()
 
 const CheckOut = () => {
+  const { generateOrder } = useOrderContext()
+
   const [activeStep, setActiveStep] = useState(0)
 
   const handleNext = () => {
@@ -102,7 +83,7 @@ const CheckOut = () => {
 
                   <Button
                     variant="contained"
-                    onClick={activeStep === steps.length - 1 ? '' : handleNext}
+                    onClick={activeStep === steps.length - 1 ? generateOrder : handleNext}
                     sx={{ mt: 3, ml: 1 }}
                   >
                     {activeStep === steps.length - 1 ? 'Confirmar' : 'Siguiente'}

@@ -1,36 +1,60 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
+
+import { getFirestore, addDoc, collection } from 'firebase/firestore' 
+
+import { useCartContext } from './CartContext'
+
 
 const OrderContext = React.createContext([])
-
 const useOrderContext = () => useContext(OrderContext)
 
 const OrderProvider = ({children}) => {
 
-    const [value, setValue] = useState('')
+    const { totalPrice, cart } = useCartContext()
 
-    const [order, setOrder] = useState({})
+    const initialOrder = Object.freeze({
+        buyer: {
+            firstName: '',
+            lastName: '',
+            address1: '',
+            address2: '',
+            city: '',
+            state: '',
+            zip: ''
+        },
+        items: [],
+        total: 0
+    })
+
+    const [orderData, setorderData] = useState(initialOrder)
 
     const orderHandler = (ev) => {
-        setValue(ev.target.value)
-        console.log(value)
+        setorderData(current => {
+            return {
+                ...current,
+                buyer: {
+                    ...current.buyer,
+                    [ev.target.name]: ev.target.value
+                },
+                items: cart.map(product => ({ id: product.id, name: product.name, price: product.price, quantity: product.quantity })),
+                total: totalPrice()
+            }
+        })
     }
 
-    useEffect(() => {
-      const timeOut = setTimeout(() => console.log(`Escribiste: ${value}`), 1500)
+    const generateOrder = () => {
+        const db = getFirestore()
+        const orderCollection = collection(db, 'orders')  
+        addDoc(orderCollection, orderData)
+            .then(({ id }) => console.log(id, orderData))
+            .then({/* RENDER ORDER ID */})
+  }
     
-      return () => clearTimeout(timeOut)
-    }, [value])
-    
-
     return (
-        <OrderContext.Provider value={{
-            orderHandler,
-            order
-        }}>
+        <OrderContext.Provider value={{ orderHandler, generateOrder }}>
             {children}
         </OrderContext.Provider>
     )
-
 }
 
 export { useOrderContext, OrderProvider }

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
 
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
@@ -47,6 +46,7 @@ const AddressForm = () => {
             label="Dirección linea 1"
             fullWidth
             variant="standard"
+            onChange={orderHandler}
           />
         </Grid>
         <Grid item xs={12}>
@@ -56,6 +56,7 @@ const AddressForm = () => {
             label="Dirección linea 2"
             fullWidth
             variant="standard"
+            onChange={orderHandler}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -66,6 +67,7 @@ const AddressForm = () => {
             label="Ciudad"
             fullWidth
             variant="standard"
+            onChange={orderHandler}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -76,6 +78,7 @@ const AddressForm = () => {
             label="Provincia"
             fullWidth
             variant="standard"
+            onChange={orderHandler}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -86,6 +89,7 @@ const AddressForm = () => {
             label="Código Postal"
             fullWidth
             variant="standard"
+            onChange={orderHandler}
           />
         </Grid>
       </Grid>
