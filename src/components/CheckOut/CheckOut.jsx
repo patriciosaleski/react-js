@@ -2,15 +2,8 @@ import { useState } from 'react'
 
 import { useOrderContext } from '../../context/OrderContext'
 
-import { createTheme, ThemeProvider } from '@mui/material/styles'
-import Typography from '@mui/material/Typography'
-import StepLabel from '@mui/material/StepLabel'
-import Container from '@mui/material/Container'
-import Stepper from '@mui/material/Stepper'
-import Button from '@mui/material/Button'
-import Paper from '@mui/material/Paper'
-import Step from '@mui/material/Step'
-import Box from '@mui/material/Box'
+// import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { Typography, StepLabel, Container, Stepper, Button, Paper, Step, Box } from '@mui/material'
 
 import AddressForm from '../AddressForm/AddressForm'
 import PaymentForm from '../PaymentForm/PaymentForm'
@@ -32,7 +25,7 @@ function getStepContent(step) {
   }
 }
 
-const theme = createTheme()
+// const theme = createTheme()
 
 const CheckOut = () => {
   const { generateOrder } = useOrderContext()
@@ -48,7 +41,7 @@ const CheckOut = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
@@ -76,7 +69,7 @@ const CheckOut = () => {
                 { getStepContent(activeStep) }
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   {activeStep !== 0 && (
-                    <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                    <Button onClick={handleBack} sx={{ mt: 3, ml: 1, color: 'black' }}>
                       Atras
                     </Button>
                   )}
@@ -85,7 +78,7 @@ const CheckOut = () => {
                     variant="contained"
                     onClick={activeStep === steps.length - 1 ? generateOrder : handleNext}
                     sx={{ mt: 3, ml: 1 }}
-                  >
+                    color= 'primary'>
                     {activeStep === steps.length - 1 ? 'Confirmar' : 'Siguiente'}
                   </Button>
                 </Box>
@@ -94,7 +87,7 @@ const CheckOut = () => {
           </>
         </Paper>
       </Container>
-    </ThemeProvider>
+
   )
 }
 

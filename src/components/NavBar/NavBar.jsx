@@ -1,26 +1,45 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom"
 
-import logo from './logo.png'
-import CartWidget from '../CartWidget/CartWidget'
+import { AppBar, Box, List, ListItem, Button } from "@mui/material"
 
-import './navbar.css'
-
+import logo from "./logo.png"
+import CartWidget from "../CartWidget/CartWidget"
+import NavBarItem from "../NavBarItem/NavBarItem"
 
 const NavBar = () => {
-    return (
-        <header className='container'>
-            <nav className='navbar'>
-                <NavLink to='/' ><img className='navbar__logo' src={logo} alt='Logo compuesto por 3 carpas indias de fondo y el texto Uñika por delante'/></NavLink>
-                <ul className='navbar__menu'>
-                    <li className='navbar__menu--item'><NavLink to='/' >Tienda</NavLink></li>
-                    <li className='navbar__menu--item'><NavLink to='/' >Contacto</NavLink></li>
-                    <li className='navbar__menu--item'><NavLink to='/' >Nosotros</NavLink></li>
-                    <li className='navbar__menu--item'><CartWidget /></li>
-                </ul>
-            </nav>
-        </header>
-    )
+  return (
+    <Box sx={{ width: 1 }}>
+      <AppBar position="static"
+        sx={{ 
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center" }}>
+
+        <NavLink to="/" style={{ display: "flex" }}>
+          <Box component="img"
+            src={logo}
+            alt="Logo compuesto por 3 carpas indias de fondo y el texto Uñika por delante"
+            sx={{ width: 1 / 4, mx: "auto", mt: 2 }}/>
+        </NavLink>
+
+        <List sx={{
+              display: "flex",
+              width: 1 / 4,
+              justifyContent: "space-between",
+            }}>
+
+          <NavBarItem />
+
+          <ListItem>
+            <Button>
+              <CartWidget />
+            </Button>
+          </ListItem>
+
+        </List>
+      </AppBar>
+    </Box>
+  )
 }
 
 export default NavBar

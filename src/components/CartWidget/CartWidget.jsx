@@ -4,18 +4,31 @@ import { useCartContext } from "../../context/CartContext"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined"
 
 import "./cartwidget.css"
+import { Box, Typography } from "@mui/material"
 
 function CartWidget() {
   const { productsInCart } = useCartContext()
 
   return (
     <Link to="/carro">
-      <ShoppingCartOutlinedIcon className="cart-icon" /> <p>Carro </p>{" "}
-      {productsInCart() === 0 ? (
-        <p style={{ display: 'none' }}></p>
-      ) : (
-        <p>{productsInCart()}</p>
-      )}
+      <Box sx={{ display: 'flex', gap: 1 }}>
+        <ShoppingCartOutlinedIcon className="cart-icon" />
+        <Typography>Carro </Typography>
+        
+        {productsInCart() === 0 ? (
+          <Box sx={{ display: "none" }}></Box>
+        ) : (
+          <Typography
+            sx={{
+              width: "fit-content",
+              bgcolor: "secondary.light",
+              px: 1,
+              borderRadius: 10,
+            }}>
+            {productsInCart()}
+          </Typography>
+        )}
+      </Box>
     </Link>
   )
 }
