@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 
 import { Link, useParams } from "react-router-dom"
 
-// import { getFirestore, doc, getDoc } from 'firebase/firestore'
+import { getFirestore, doc, getDoc } from 'firebase/firestore'
 
 import { Box, Button, Tooltip } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
@@ -12,28 +12,28 @@ import ItemDetail from "../ItemDetail/ItemDetail"
 
 
 // DEV BRANCH
-const productInfo = [
-  {
-    id: 1,
-    baseSize: 1.0,
-    height: 1.55
-  },
-  {
-    id: 2,
-    baseSize: 1.2,
-    height: 1.7
-  },
-  {
-    id: 3,
-    baseSize: 1.5,
-    height: 1.7
-  },
-  {
-    id: 4,
-    baseSize: 2.0,
-    height: 1.85
-  }
-]
+// const productInfo = [
+//   {
+//     id: 1,
+//     baseSize: 1.0,
+//     height: 1.55
+//   },
+//   {
+//     id: 2,
+//     baseSize: 1.2,
+//     height: 1.7
+//   },
+//   {
+//     id: 3,
+//     baseSize: 1.5,
+//     height: 1.7
+//   },
+//   {
+//     id: 4,
+//     baseSize: 2.0,
+//     height: 1.85
+//   }
+// ]
 
 const ItemDetailContainer = () => {
   const [data, setData] = useState({})
@@ -42,17 +42,17 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     // FOR FIREBASE USE ONLY
-    // const db = getFirestore()
-    // const dbDoc = doc(db, 'products', detalleId)
-    // getDoc(dbDoc)
-    //     .then(res => setData({ id: res.id, ...res.data() }))
+    const db = getFirestore()
+    const dbDoc = doc(db, 'products', detalleId)
+    getDoc(dbDoc)
+        .then(res => setData({ id: res.id, ...res.data() }))
 
     // DEV BRANCH
-    const getData = new Promise((resolve) => resolve(productInfo))
+    // const getData = new Promise((resolve) => resolve(productInfo))
 
-    getData.then((res) =>
-      setData(res.find((product) => product.id === parseInt(detalleId)))
-    )
+    // getData.then((res) =>
+    //   setData(res.find((product) => product.id === parseInt(detalleId)))
+    // )
   })
 
   return (

@@ -1,13 +1,11 @@
-import Typography from '@mui/material/Typography'
-import TextField from '@mui/material/TextField'
-import Grid from '@mui/material/Grid'
+import Typography from "@mui/material/Typography"
+import TextField from "@mui/material/TextField"
+import Grid from "@mui/material/Grid"
 
-import { useOrderContext } from '../../context/OrderContext'
-
+import { useOrderContext } from "../../context/OrderContext"
 
 const PaymentForm = () => {
-
-  const { paymentData } = useOrderContext()
+  const { updateState } = useOrderContext()
 
   return (
     <>
@@ -22,7 +20,7 @@ const PaymentForm = () => {
             label="Nombre en la tarjeta"
             fullWidth
             variant="standard"
-            onChange={ paymentData }
+            onChange={updateState}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -30,9 +28,10 @@ const PaymentForm = () => {
             required
             id="cardNumber"
             label="Número de tarjeta"
+            placeholder=""
             fullWidth
             variant="standard"
-            onChange={ paymentData }
+            onChange={updateState}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -42,7 +41,7 @@ const PaymentForm = () => {
             label="Fecha de vencimiento"
             fullWidth
             variant="standard"
-            onChange={ paymentData }
+            onChange={updateState}
           />
         </Grid>
         <Grid item xs={12} md={6}>
