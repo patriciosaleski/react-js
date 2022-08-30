@@ -10,49 +10,16 @@ import CloseIcon from "@mui/icons-material/Close"
 import FeatureContainer from "../FeatureContainer/FeatureContainer"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
-
-// DEV BRANCH
-// const productInfo = [
-//   {
-//     id: 1,
-//     baseSize: 1.0,
-//     height: 1.55
-//   },
-//   {
-//     id: 2,
-//     baseSize: 1.2,
-//     height: 1.7
-//   },
-//   {
-//     id: 3,
-//     baseSize: 1.5,
-//     height: 1.7
-//   },
-//   {
-//     id: 4,
-//     baseSize: 2.0,
-//     height: 1.85
-//   }
-// ]
-
 const ItemDetailContainer = () => {
   const [data, setData] = useState({})
 
   const { detalleId } = useParams()
 
   useEffect(() => {
-    // FOR FIREBASE USE ONLY
     const db = getFirestore()
     const dbDoc = doc(db, 'products', detalleId)
     getDoc(dbDoc)
         .then(res => setData({ id: res.id, ...res.data() }))
-
-    // DEV BRANCH
-    // const getData = new Promise((resolve) => resolve(productInfo))
-
-    // getData.then((res) =>
-    //   setData(res.find((product) => product.id === parseInt(detalleId)))
-    // )
   })
 
   return (

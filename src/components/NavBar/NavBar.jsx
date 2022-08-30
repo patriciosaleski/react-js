@@ -35,7 +35,6 @@ const NavBar = () => {
               <CartWidget />
             </Button>
           </ListItem>
-
         </List>
       </AppBar>
     </Box>

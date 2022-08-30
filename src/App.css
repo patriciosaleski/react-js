@@ -7,6 +7,8 @@
 
 html {
   font-family: var(--primary-font);
+  background: linear-gradient( rgba(249,248,233,0.81), rgba(249,248,233,0.81) ), url(../public/img/bg.jpg);
+  height: 100vh;
 }
 
 a {
@@ -33,11 +35,4 @@ button:hover, a:hover {
   --light: 300;
   --regular: 400;
   --bold: 700;
-}
-
-/* Background */
-
-.base {
-  background: linear-gradient( rgba(249,248,233,0.81), rgba(249,248,233,0.81) ), url('../public/img/bg.jpg');
-  height: 100vh;
 }

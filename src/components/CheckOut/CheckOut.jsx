@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import { useOrderContext } from "../../context/OrderContext"
+import { useCartContext } from "../../context/CartContext"
 
 import { Typography, StepLabel, Container, Stepper, Button, Paper, Step, Box } from "@mui/material"
 
@@ -24,15 +25,17 @@ function getStepContent(step) {
 }
 
 const CheckOut = () => {
+  const { clearCart } = useCartContext()
   const { orderData, generateOrder } = useOrderContext()
 
   const [activeStep, setActiveStep] = useState(0)
   const [orderID, setOrderID] = useState("")
-  
+
   const handleConfirmOrder = () => {
     generateOrder(orderData).then((id) => {
       setOrderID(id)
-      console.count(`Compra realizaca con éxito: ID: ${id} Items: ${orderData}`)
+      handleNext()
+      clearCart()
     })
   }
 
@@ -73,9 +76,7 @@ const CheckOut = () => {
                   </Typography>
                 </>
               ) : (
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
-                  <Typography>Cargando...</Typography>
-                </Box>
+                null
               )}
             </Box>
           ) : (
@@ -94,7 +95,7 @@ const CheckOut = () => {
                   variant="contained"
                   onClick={
                     activeStep === steps.length - 1
-                      ? (handleConfirmOrder(), handleNext)
+                      ? handleConfirmOrder
                       : handleNext
                   }
                   sx={{ mt: 3, ml: 1 }}
