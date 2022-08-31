@@ -1,9 +1,19 @@
-import { TextField, Button, Typography } from "@mui/material"
+import { useState } from "react"
+
+import { TextField, Button, Typography, Snackbar, Alert } from "@mui/material"
 import { Box } from "@mui/system"
 
 import { useFormControls } from "./useFormControls"
 
 const ContactForm = () => {
+  const { handleInputValue, handleFormSubmit, formIsValid, errors } = useFormControls()
+
+  const [open, setOpen] = useState(false)
+
+  const handleClose = (ev, reason) => {
+    return reason === "clickaway" ? '' : setOpen(false)
+  }
+
   const inputFieldValues = [
     {
       name: "fullName",
@@ -13,7 +23,7 @@ const ContactForm = () => {
     {
       name: "email",
       label: "Email",
-      id: "my-email",
+      id: "my-email"
     },
     {
       name: "message",
@@ -23,8 +33,6 @@ const ContactForm = () => {
     }
   ]
 
-  const { handleInputValue, handleFormSubmit, formIsValid, errors } =
-    useFormControls()
   return (
     <Box
       component="form"
@@ -39,9 +47,11 @@ const ContactForm = () => {
         borderRadius: 4,
         boxShadow: 3,
         p: 2,
-        my: 6
+        my: 6,
       }}>
-      <Typography variant="h3" textAlign="center" fontWeight={100}>Contactate con nosotros</Typography>
+      <Typography variant="h3" textAlign="center" fontWeight={100}>
+        Contactate con nosotros
+      </Typography>
       {inputFieldValues.map((inputFieldValue, index) => {
         return (
           <TextField
@@ -55,13 +65,27 @@ const ContactForm = () => {
               error: true,
               helperText: errors[inputFieldValue.name],
             })}
-            color='black'
+            color="black"
           />
         )
       })}
-      <Button disabled={formIsValid()} type="submit" color="primary" variant="contained" sx={{ width: 1/8, mx: 'auto' }}>
+      <Button
+        disabled={!formIsValid()}
+        onClick={() => setOpen(true)}
+        type="submit"
+        color="primary"
+        variant="contained"
+        sx={{ width: 1 / 8, mx: "auto" }}>
         Enviar
       </Button>
+      <Snackbar
+      autoHideDuration={5000}
+      open={open}
+      onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" variant="filled">
+          ¡Consulta enviada con éxito! En breve te respoderemos.
+        </Alert>
+      </Snackbar>
     </Box>
   )
 }

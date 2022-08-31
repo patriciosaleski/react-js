@@ -20,7 +20,8 @@ const ItemDetailContainer = () => {
     const dbDoc = doc(db, 'products', detalleId)
     getDoc(dbDoc)
         .then(res => setData({ id: res.id, ...res.data() }))
-  })
+        .then(console.count('pedido a firebase'))
+  }, [detalleId])
 
   return (
     <Box
