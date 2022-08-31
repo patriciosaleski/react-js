@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { Box, Button, Tooltip, Typography } from "@mui/material"
+
 import { useCartContext } from "../../context/CartContext"
-import GoToCart from "../GoToCart/GoToCar"
 import ItemCount from "../ItemCount/ItemCount"
-import "./Item.css"
 
 const Item = (props) => {
   const [goToCart, setGoToCart] = useState(false)
@@ -15,21 +15,58 @@ const Item = (props) => {
     addToCart(props, quantity)
   }
 
+  const navigate = useNavigate()
+  const navigateToCart = () => navigate("/carro")
+
   return (
-    <div className="item">
-      <Link to={`/detalle/${props.id}`}>
-        <div className="item__info">
-          <img src={props.src} alt={props.alt} className="item__picture" />
-          <h3 className="item__name">{props.name}</h3>
-          <div className="item__price">${props.price}</div>
-        </div>
-      </Link>
-      {goToCart ? 
-        ( <Link to="/carro"> <GoToCart /> </Link>
-        ) : (
+    <Box
+      sx={{
+        width: 250,
+        overflow: "hidden",
+        borderRadius: 5,
+        boxShadow: 3,
+        bgcolor: "secondary.main",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+      }}>
+
+      <Tooltip title="Ver detalles" placement="top" arrow>
+        <Link to={`/detalle/${props.id}`}>
+          <Box>
+            <Box component="img"
+              src={props.src}
+              alt={props.alt}
+              sx={{ width: "250px", height: "300px", mb: 1 }}/>
+
+            <Typography sx={{ fontSize: 20, ml: 2 }}> {props.name} </Typography>
+
+            <Typography sx={{ fontSize: 18, fontWeight: 300, ml: 2 }}> ${props.price} </Typography>
+
+          </Box>
+        </Link>
+      </Tooltip>
+
+      {goToCart ? (
+        <Button
+          onClick={navigateToCart}
+          variant='outlined'
+          sx={{
+            width: "90%",
+            color: "black",
+            my: "auto",
+            borderRadius: 3,
+            transition: "all .2s ease-in",
+            "&:hover": {
+              bgcolor: "primary.light"
+            }
+          }}>
+          Finalizar Compra
+        </Button>
+      ) : (
         <ItemCount initial={0} stock={10} onAdd={onAdd} />
       )}
-    </div>
+    </Box>
   )
 }
 

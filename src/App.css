@@ -7,11 +7,8 @@
 
 html {
   font-family: var(--primary-font);
-  font-size: 62.5%;
-}
-
-ul {
-  list-style-type: none;
+  background: linear-gradient( rgba(249,248,233,0.81), rgba(249,248,233,0.81) ), url(../public/img/bg.jpg);
+  height: 100vh;
 }
 
 a {

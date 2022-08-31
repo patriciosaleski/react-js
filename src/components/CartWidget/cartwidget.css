@@ -1,10 +1,20 @@
 .navbar__menu--item:nth-child(4) a {
     display: flex;
     align-items: center;
+    gap: .5rem;
 }
 
 .navbar__menu--item svg {
     width: 24px;
     height: 24px;
     margin-right: 1.2rem;
+}
+
+.navbar__menu--item:nth-child(4) p:last-of-type {
+    background-color: var(--secondary-color);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1em;
 }

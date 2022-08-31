@@ -1,7 +1,7 @@
 .item__counter {
     background-color: var(--secondary-color);
     text-align: center;
-    padding: 1rem;
+    padding: 0 1rem 1rem;
 }
 
 .item__counter button:last-child {
@@ -16,7 +16,7 @@
     background-color: aliceblue;
 }
 
-span {
-    font-size: 2em;
+.item__counter span {
+    font-size: 1.6em;
     margin: 0 1.2rem;
 }
